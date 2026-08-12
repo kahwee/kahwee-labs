@@ -1,0 +1,4 @@
+strategy,navigations,requests
+loader,15,15
+query-fresh,15,1
+query-stale,15,15

@@ -13,7 +13,11 @@ const output = {
 };
 const rawDirectory = resolve('results/raw');
 await mkdir(rawDirectory, { recursive: true });
-const target = resolve(rawDirectory, `${output.generatedAt.replaceAll(':', '-')}.json`);
+const stem = output.generatedAt.replaceAll(':', '-');
+const target = resolve(rawDirectory, `${stem}.json`);
+const csvTarget = resolve(rawDirectory, `${stem}.csv`);
 await writeFile(target, `${JSON.stringify(output, null, 2)}\n`);
+await writeFile(csvTarget, ['strategy,navigations,requests', ...output.results.map((row) => `${row.strategy},${row.navigations},${row.requests}`)].join('\n') + '\n');
 console.table(output.results);
 console.log(`Raw result: ${target}`);
+console.log(`Raw CSV: ${csvTarget}`);
