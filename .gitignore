@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+.turbo/
+*.tsbuildinfo
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Keep reviewed benchmark summaries, ignore ad hoc raw runs.
+benchmarks/*/results/raw/

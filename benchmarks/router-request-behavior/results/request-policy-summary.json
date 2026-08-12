@@ -1,0 +1,13 @@
+{
+  "description": "Deterministic request-policy comparison for 15 sequential visits to the same resource.",
+  "versions": {
+    "@tanstack/query-core": "5.101.4"
+  },
+  "results": [
+    { "strategy": "loader", "navigations": 15, "requests": 15 },
+    { "strategy": "query-fresh", "navigations": 15, "requests": 1 },
+    { "strategy": "query-stale", "navigations": 15, "requests": 15 }
+  ],
+  "interpretation": "Query reduces requests only when the application chooses a non-zero freshness window. With staleTime zero, its repeated fetch policy matches this loader model.",
+  "caveat": "This models request policy. It does not measure rendering speed, network latency, server CPU, or React Router's shouldRevalidate controls."
+}
