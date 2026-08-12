@@ -9,6 +9,7 @@ The default deployment is messaging-only:
 - no host ports are published;
 - secrets are stored in `/volume1/docker/hermes/.env`, not forwarded into Docker's inspectable container environment;
 - the image must be pinned by digest;
+- CPU, memory, and process counts are bounded;
 - the container cannot gain new privileges;
 - no Docker socket or broad NAS directory is mounted.
 
@@ -20,10 +21,20 @@ The default deployment is messaging-only:
 4. Confirm the image's runtime UID and GID before changing host permissions.
 5. Run `docker compose run --rm hermes setup`. Enter provider and messaging credentials in the wizard; Hermes writes them to the private data volume.
 6. On the NAS, run `chmod 700 /volume1/docker/hermes && chmod 600 /volume1/docker/hermes/.env`.
-7. Run `docker compose up -d`.
-8. Run `./verify.sh`.
+7. In `/volume1/docker/hermes/config.yaml`, enable a circuit breaker for the unattended gateway:
 
-Never commit the resulting `.env`, paste it into an issue, or mount the Docker socket.
+   ```yaml
+   tool_loop_guardrails:
+     hard_stop_enabled: true
+     hard_stop_after:
+       exact_failure: 5
+       idempotent_no_progress: 5
+   ```
+
+8. Run `docker compose up -d`.
+9. Run `./verify.sh`.
+
+Never commit the resulting `.env`, paste it into an issue, or mount the Docker socket. Backups of `/volume1/docker/hermes` contain secrets, sessions, and memories; encrypt them and restrict access like the live directory.
 
 ## Optional API access
 
