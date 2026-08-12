@@ -1,0 +1,13 @@
+{
+  "name": "@kahwee-labs/router-request-behavior",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "benchmark": "node --experimental-strip-types scripts/run.ts",
+    "build": "echo 'No build required'",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --config ./vitest.config.mts"
+  },
+  "dependencies": { "@tanstack/query-core": "5.101.4" },
+  "devDependencies": { "@types/node": "26.2.0", "typescript": "7.0.2", "vitest": "4.1.10" }
+}
