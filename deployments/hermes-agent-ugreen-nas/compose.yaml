@@ -11,3 +11,6 @@ services:
       HERMES_GID: ${HERMES_GID:?Set the verified numeric GID}
     security_opt:
       - no-new-privileges:true
+    mem_limit: 4g
+    cpus: 2.0
+    pids_limit: 512
