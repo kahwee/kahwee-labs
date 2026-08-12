@@ -1,0 +1,17 @@
+services:
+  hermes:
+    image: ${HERMES_IMAGE:?Set HERMES_IMAGE to an immutable name@sha256 digest}
+    container_name: hermes-agent
+    restart: unless-stopped
+    command: ["gateway", "run"]
+    ports:
+      - "${NAS_LAN_IP:?Set NAS_LAN_IP}:8642:8642"
+    volumes:
+      - /volume1/docker/hermes:/opt/data
+    environment:
+      HERMES_UID: ${HERMES_UID:?Set the verified numeric UID}
+      HERMES_GID: ${HERMES_GID:?Set the verified numeric GID}
+    env_file:
+      - .env
+    security_opt:
+      - no-new-privileges:true
