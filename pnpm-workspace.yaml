@@ -1,6 +1,7 @@
 packages:
   - examples/*
   - benchmarks/*
+  - packages/*
 
 allowBuilds:
   esbuild: true
