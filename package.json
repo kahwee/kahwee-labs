@@ -3,10 +3,10 @@
   "private": true,
   "packageManager": "pnpm@11.21.0",
   "scripts": {
-    "build": "corepack pnpm --recursive build",
-    "test": "corepack pnpm --recursive test",
-    "typecheck": "corepack pnpm --recursive typecheck",
-    "verify": "corepack pnpm typecheck && corepack pnpm test && corepack pnpm build"
+    "build": "pnpm --recursive build",
+    "test": "pnpm --recursive test",
+    "typecheck": "pnpm --recursive typecheck",
+    "verify": "pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": { "typescript": "7.0.2" }
 }
