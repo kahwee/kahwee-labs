@@ -8,5 +8,7 @@
     "typecheck": "pnpm --recursive typecheck",
     "verify": "pnpm typecheck && pnpm test && pnpm build"
   },
-  "devDependencies": { "typescript": "7.0.2" }
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
 }
