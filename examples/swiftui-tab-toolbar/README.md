@@ -1,9 +1,9 @@
 # SwiftUI Tab and Toolbar Lab
 
-Runnable iOS 26 examples behind two KahWee.com investigations:
+Runnable examples for two KahWee.com investigations:
 
-- [I Built the TabView Examples Apple's Docs Were Missing](https://kahwee.com/2025/understanding-swiftui-tabview/)
-- [SwiftUI Moved My Toolbar Buttons Without Asking](https://kahwee.com/2025/swiftui-declarative-toolbar-placement/)
+- [What SwiftUI's Tab APIs Actually Do](https://kahwee.com/2025/understanding-swiftui-tabview/)
+- [SwiftUI Toolbar Placement Is Intent, Not Coordinates](https://kahwee.com/2025/swiftui-declarative-toolbar-placement/)
 
 The app opens to an index of focused examples. The TabView group covers basic tabs, search roles, badges, programmatic selection, sidebar adaptation and paging. The toolbar group covers adaptive placements, overflow, search, modal controls and visibility.
 
@@ -22,4 +22,6 @@ xcodebuild \
   build
 ```
 
-The examples intentionally use system behavior rather than recreating tabs or toolbars. Compare compact and regular widths to see how SwiftUI changes placement and overflow.
+The `Tab` structure, search role and sidebar-adaptable style were introduced in iOS 18. This project targets iOS 26 to show how the same structure adopts Liquid Glass, toolbar grouping and the updated search presentation.
+
+The examples intentionally use system behavior rather than recreating tabs or toolbars. Compare compact and regular widths to see how SwiftUI changes placement and overflow. The project currently proves iPhone and iPad behavior; it does not include a macOS target.

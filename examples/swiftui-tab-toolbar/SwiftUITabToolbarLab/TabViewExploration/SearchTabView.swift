@@ -1,37 +1,62 @@
 import SwiftUI
 
-/// TabView with dedicated Search tab (iOS 26+)
-/// Demonstrates Tab(role: .search) for system-integrated search
-/// Use this for: Apps with prominent search functionality (like App Store, Music)
-/// Key features:
-/// - Tab(role: .search) gets special treatment from iOS
-/// - Automatically uses magnifying glass icon
-/// - May get special positioning or behavior in future iOS versions
-/// - Follows Apple's search conventions
+/// A dedicated, functional search destination.
+///
+/// `Tab(role: .search)` identifies the destination to the system. The
+/// `.searchable` modifier supplies the search field, while this view still owns
+/// the query and filtering behavior.
 struct SearchTabView: View {
-    var body: some View {
-        TabView {
-            // Regular tab: Issues
-            Tab("Issues", systemImage: "newspaper") {
-                Color.clear.styledTabContent("Issues")
-            }
+  @State private var query = ""
 
-            // Regular tab: About
-            Tab("About", systemImage: "info.circle") {
-                Color.clear.styledTabContent("About")
-            }
+  private let topics = [
+    "SwiftUI",
+    "UIKit",
+    "Accessibility",
+    "Animations",
+    "Performance",
+    "Testing",
+    "Navigation",
+    "Data Flow",
+  ]
 
-            // Special search tab using role
-            // THIS IS KEY: Tab(role: .search) tells iOS this is a search tab
-            // - No label or icon needed - iOS provides defaults
-            // - Gets special system treatment and conventions
-            Tab(role: .search) {
-                Color.clear.styledTabContent("Search")
+  var body: some View {
+    TabView {
+      Tab("Articles", systemImage: "newspaper") {
+        Color.clear.styledTabContent("Articles")
+      }
+
+      Tab("About", systemImage: "info.circle") {
+        Color.clear.styledTabContent("About")
+      }
+
+      Tab(role: .search) {
+        NavigationStack {
+          List(filteredTopics, id: \.self) { topic in
+            Text(topic)
+          }
+          .navigationTitle("Search")
+          .overlay {
+            if filteredTopics.isEmpty {
+              ContentUnavailableView.search(text: query)
             }
+          }
         }
+      }
     }
+    .searchable(text: $query, prompt: "Search topics")
+  }
+
+  private var filteredTopics: [String] {
+    guard !query.isEmpty else {
+      return topics
+    }
+
+    return topics.filter { topic in
+      topic.localizedCaseInsensitiveContains(query)
+    }
+  }
 }
 
 #Preview {
-    SearchTabView()
+  SearchTabView()
 }
