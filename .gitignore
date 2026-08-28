@@ -7,6 +7,9 @@ coverage/
 *.tsbuildinfo
 *.log
 .DS_Store
+DerivedData/
+*.xcuserstate
+xcuserdata/
 .env
 .env.*
 !.env.example

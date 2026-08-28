@@ -18,6 +18,7 @@ corepack pnpm --filter @kahwee-labs/router-request-behavior benchmark
 ## Current investigations
 
 - `examples/react-router-loaders-vs-react-query`: loader-only, Query-only, and hybrid approaches to GET, validated POST, and React Hook Form integration.
+- `examples/swiftui-tab-toolbar`: runnable iOS 26 examples for SwiftUI's Tab API and adaptive toolbar placements.
 - `benchmarks/router-request-behavior`: request-behavior experiments derived from the comparison, intentionally separated from explanatory UI code.
 
 Each published article should link to the current lab and an immutable evidence tag. Each lab links back to the article, the writing hub, and [KahWee’s About page](https://kahwee.com/about/).
