@@ -1,7 +1,7 @@
 {
   "description": "Deterministic request-policy comparison for 15 sequential visits to the same resource.",
   "versions": {
-    "@tanstack/query-core": "5.101.4"
+    "@tanstack/query-core": "5.103.1"
   },
   "results": [
     { "strategy": "loader", "navigations": 15, "requests": 15 },

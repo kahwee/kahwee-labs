@@ -1,13 +1,16 @@
 import { mkdir, writeFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import { runComparison } from './model.ts';
 
+const require = createRequire(import.meta.url);
+const queryCorePackage = require('@tanstack/query-core/package.json') as { version: string };
 const navigations = Number(process.env.NAVIGATIONS ?? 15);
 if (!Number.isInteger(navigations) || navigations < 1) throw new Error('NAVIGATIONS must be a positive integer.');
 const comparison = await runComparison(navigations);
 const output = {
   generatedAt: new Date().toISOString(),
-  versions: { '@tanstack/query-core': '5.101.4' },
+  versions: { '@tanstack/query-core': queryCorePackage.version },
   caveat: 'This is a deterministic request-policy model, not a wall-clock performance benchmark.',
   ...comparison,
 };

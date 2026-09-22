@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-09-22T03:22:34.160Z",
+  "versions": {
+    "@tanstack/query-core": "5.103.1"
+  },
+  "caveat": "This is a deterministic request-policy model, not a wall-clock performance benchmark.",
+  "methodology": "Sequential visits to the same task resource in one application session.",
+  "navigations": 15,
+  "results": [
+    {
+      "strategy": "loader",
+      "navigations": 15,
+      "requests": 15
+    },
+    {
+      "strategy": "query-fresh",
+      "navigations": 15,
+      "requests": 1
+    },
+    {
+      "strategy": "query-stale",
+      "navigations": 15,
+      "requests": 15
+    }
+  ]
+}
