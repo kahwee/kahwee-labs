@@ -1,24 +1,30 @@
 # KahWee Labs
 
-Runnable evidence supporting [KahWee.com](https://kahwee.com/). This is a collection of self-contained article labs—not a library and not a dumping ground.
+Runnable examples and benchmarks behind articles on
+[KahWee.com](https://kahwee.com/). Each lab includes the source needed to repeat
+its result.
 
-Use `examples/` for applications a reader can explore. Use `benchmarks/` for measured output, with the generating script and raw JSON or CSV committed together. `packages/` stays empty until at least three labs genuinely need the same maintained code.
+Browse `examples/` for small apps and `benchmarks/` for measured experiments.
+Benchmarks include their scripts and raw JSON or CSV output.
 
 ```bash
-corepack pnpm install
-corepack pnpm verify
+pnpm install --frozen-lockfile
+pnpm verify
 ```
 
 Run the current benchmark with:
 
 ```bash
-corepack pnpm --filter @kahwee-labs/router-request-behavior benchmark
+pnpm --filter @kahwee-labs/router-request-behavior benchmark
 ```
 
 ## Current investigations
 
-- `examples/react-router-loaders-vs-react-query`: loader-only, Query-only, and hybrid approaches to GET, validated POST, and React Hook Form integration.
-- `examples/swiftui-tab-toolbar`: runnable iOS 26 examples for SwiftUI's Tab API and adaptive toolbar placements.
-- `benchmarks/router-request-behavior`: request-behavior experiments derived from the comparison, intentionally separated from explanatory UI code.
+- [React Router loaders and React Query](examples/react-router-loaders-vs-react-query/README.md):
+  runnable loader, Query, and hybrid approaches.
+- [SwiftUI tabs and toolbars](examples/swiftui-tab-toolbar/README.md):
+  runnable iOS 26 examples.
+- [Router request behavior](benchmarks/router-request-behavior/README.md):
+  repeatable measurements for the routing comparison.
 
 Each published article should link to the current lab and an immutable evidence tag. Each lab links back to the article, the writing hub, and [KahWee’s About page](https://kahwee.com/about/).
