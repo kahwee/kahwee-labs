@@ -2,8 +2,11 @@
 
 This first benchmark models a deliberately narrow question: how many requests result from 15 sequential visits to the same resource in one application session?
 
+Run from the workspace root after `pnpm install --frozen-lockfile`, using its
+pinned pnpm version:
+
 ```bash
-corepack pnpm --filter @kahwee-labs/router-request-behavior benchmark
+pnpm --filter @kahwee-labs/router-request-behavior benchmark
 ```
 
 | Strategy | Freshness policy | Requests for 15 visits |

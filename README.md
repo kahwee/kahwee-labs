@@ -7,16 +7,23 @@ its result.
 Browse `examples/` for small apps and `benchmarks/` for measured experiments.
 Benchmarks include their scripts and raw JSON or CSV output.
 
+Use the pnpm version in [`package.json`](package.json). The JavaScript labs
+require Node; the SwiftUI lab requires Xcode and an iOS 26 SDK.
+
 ```bash
 pnpm install --frozen-lockfile
 pnpm verify
 ```
 
-Run the current benchmark with:
+Run the request-policy benchmark from the workspace root:
 
 ```bash
 pnpm --filter @kahwee-labs/router-request-behavior benchmark
 ```
+
+This writes new measurement evidence; review its output before committing it.
+`pnpm verify` checks the JavaScript labs only. Build the SwiftUI lab separately
+with its [Xcode instructions](examples/swiftui-tab-toolbar/README.md).
 
 ## Current investigations
 

@@ -18,7 +18,7 @@ When should route data use loaders, TanStack Query, or both?
 
 Only domain types, deterministic mock data, validation, and endpoint behavior are shared. The competing orchestration code remains separate under `src/scenarios/`.
 
-## Tested with
+## Historical verification (2026-08-12)
 
 - Node: 24.16.0
 - React: 19.2.8
@@ -29,9 +29,13 @@ Only domain types, deterministic mock data, validation, and endpoint behavior ar
 
 ## Run
 
+Run from the workspace root with the pnpm version in `package.json`. Current
+dependency versions are in this example's `package.json`; the list above records
+the earlier verification, not the current lockfile.
+
 ```bash
-corepack pnpm install
-corepack pnpm --filter @kahwee-labs/react-router-loaders-vs-react-query dev
+pnpm install --frozen-lockfile
+pnpm --filter @kahwee-labs/react-router-loaders-vs-react-query dev
 ```
 
 Open `http://localhost:5173`, then move among `/loaders`, `/query`, and `/hybrid`.
