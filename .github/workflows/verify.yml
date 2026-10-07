@@ -19,4 +19,11 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm verify
+      # Preserve the verify gate without overlapping output-producing builds.
+      - parallel:
+          - name: Type check
+            run: pnpm typecheck
+          - name: Test
+            run: pnpm test
+      - name: Build
+        run: pnpm build
