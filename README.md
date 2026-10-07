@@ -35,3 +35,7 @@ with its [Xcode instructions](examples/swiftui-tab-toolbar/README.md).
   repeatable measurements for the routing comparison.
 
 Each published article should link to the current lab and an immutable evidence tag. Each lab links back to the article, the writing hub, and [KahWee’s About page](https://kahwee.com/about/).
+
+## CI maintenance
+
+[GitHub Actions maintenance](.github/ACTIONS.md) covers workflows, parallel checks, action versions, and weekly updates.
