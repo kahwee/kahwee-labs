@@ -25,4 +25,4 @@ This is a deterministic request-policy model, not a browser or wall-clock perfor
 - Topic hub: [Frontend writing](https://kahwee.com/writing/)
 - Author: [About KahWee](https://kahwee.com/about/)
 
-Raw runs under `results/raw/` are committed alongside the reviewed summary so results can be traced back to machine-readable output.
+Raw runs under `results/raw/` are committed alongside the reviewed summary so results can be traced back to machine-readable output. The existing runs used `@tanstack/query-core` 5.104.5; the updated dependency requires a fresh run before attributing these historical results to the new version.
