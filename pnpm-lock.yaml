@@ -116,8 +116,8 @@ importers:
   benchmarks/router-request-behavior:
     dependencies:
       '@tanstack/query-core':
-        specifier: 5.105.3
-        version: 5.105.3
+        specifier: 5.106.1
+        version: 5.106.1
     devDependencies:
       '@types/node':
         specifier: 26.6.6
@@ -127,16 +127,16 @@ importers:
         version: 7.0.2
       vitest:
         specifier: 5.1.0
-        version: 5.1.0(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6))
+        version: 5.1.0(@types/node@26.6.6)(vite@8.3.6(@types/node@26.6.6))
 
   examples/react-router-loaders-vs-react-query:
     dependencies:
       '@hookform/resolvers':
-        specifier: 7.0.1
-        version: 7.0.1(react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)
+        specifier: 7.0.3
+        version: 7.0.3(react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)
       '@tanstack/react-query':
-        specifier: 5.105.3
-        version: 5.105.3(@types/react@19.3.0)(react@19.3.1)
+        specifier: 5.106.1
+        version: 5.106.1(@types/react@19.3.0)(react@19.3.1)
       react:
         specifier: 19.3.1
         version: 19.3.1
@@ -161,21 +161,21 @@ importers:
         version: 19.3.0(@types/react@19.3.0)
       '@vitejs/plugin-react':
         specifier: 6.2.1
-        version: 6.2.1(vite@8.3.5)
+        version: 6.2.1(vite@8.3.6(@types/node@26.6.6))
       typescript:
         specifier: 7.0.2
         version: 7.0.2
       vite:
-        specifier: 8.3.5
-        version: 8.3.5(@types/node@26.6.6)
+        specifier: 8.3.6
+        version: 8.3.6(@types/node@26.6.6)
       vitest:
         specifier: 5.1.0
-        version: 5.1.0(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6))
+        version: 5.1.0(@types/node@26.6.6)(vite@8.3.6(@types/node@26.6.6))
 
 packages:
 
-  '@hookform/resolvers@7.0.1':
-    resolution: {integrity: sha512-F3aM0dDWsRGmFjnnXjogaGLwP7gY2HA6/c5qp4v4Im/UV7pTNkX+WAjcOlM1V0PE0zoMzuPqCyaYtMzUhoFToA==}
+  '@hookform/resolvers@7.0.3':
+    resolution: {integrity: sha512-beGY1JY6K5cyWlswD4BVf7UTb5MxSjKkjljrRyLPT3KIQzsTU0jOibBKqtdcKqIZYQUUyURed7roLWZtSdAtiQ==}
     peerDependencies:
       '@standard-schema/spec': ^1.0.0
       '@vinejs/vine': ^2.0.0 || ^3.0.0 || ^4.0.0
@@ -367,11 +367,11 @@ packages:
   '@standard-schema/utils@0.3.0':
     resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
-  '@tanstack/query-core@5.105.3':
-    resolution: {integrity: sha512-v1rbNy7MB/4Akth7CQH+CerV13K7Ok9hAusEsfz4sCjDdu3/kOSJPoWfoB+YjdEX1eBFBWKNAGE5nqZCgdlHDw==}
+  '@tanstack/query-core@5.106.1':
+    resolution: {integrity: sha512-erYv/UACddcdgjOL2ixmFdK6tO/AVBeUcTCOtX2N51yZpDQ2U7KJ+xgB/bCNfsF3uoCDTqGHEEbDiFsIO9YUmQ==}
 
-  '@tanstack/react-query@5.105.3':
-    resolution: {integrity: sha512-dj5hGWZmwoc9NG4enoXuYbiYwb5FxgJYPVv06eUgicMTfEMTRXn08Xv9D/r1V8TfjAv+BpxdvZFzJ1h3hSWZcQ==}
+  '@tanstack/react-query@5.106.1':
+    resolution: {integrity: sha512-ORDvJG/DSfmlFL9lQ8GDkE0VjtQbLeRDY7BL8xjKkQFGLfjFGfNWNuteWgPqA2gPJgLLuWfQ7IX0FlsHCJriyg==}
     peerDependencies:
       '@types/react': ^18 || ^19
       react: ^18 || ^19
@@ -758,8 +758,8 @@ packages:
   undici-types@8.9.0:
     resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
-  vite@8.3.5:
-    resolution: {integrity: sha512-z1YpjieJ9g0ebTmQpLBv/oq9E3F9EIlOe+7LahW8SrE3LTiG3udBRUXQOlYXP9b+IC2q2phHeVxj9xGlw34OEQ==}
+  vite@8.3.6:
+    resolution: {integrity: sha512-UI7dK29NnS54Fk+mmo7o+jI6U8Fp7hDl+X5Q1k45WH+d4dSlbLVUETGQ+hfkNgvLQGyoElPj837nZyv4MBc0VA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -852,7 +852,7 @@ packages:
 
 snapshots:
 
-  '@hookform/resolvers@7.0.1(react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)':
+  '@hookform/resolvers@7.0.3(react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)':
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.91.0(@types/react@19.3.0)(react@19.3.1)
@@ -921,11 +921,11 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
-  '@tanstack/query-core@5.105.3': {}
+  '@tanstack/query-core@5.106.1': {}
 
-  '@tanstack/react-query@5.105.3(@types/react@19.3.0)(react@19.3.1)':
+  '@tanstack/react-query@5.106.1(@types/react@19.3.0)(react@19.3.1)':
     dependencies:
-      '@tanstack/query-core': 5.105.3
+      '@tanstack/query-core': 5.106.1
       react: 19.3.1
     optionalDependencies:
       '@types/react': 19.3.0
@@ -1011,19 +1011,19 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
-  '@vitejs/plugin-react@6.2.1(vite@8.3.5)':
+  '@vitejs/plugin-react@6.2.1(vite@8.3.6(@types/node@26.6.6))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 8.3.5(@types/node@26.6.6)
+      vite: 8.3.6(@types/node@26.6.6)
 
-  '@vitest/mocker@5.1.0(vite@8.3.5)':
+  '@vitest/mocker@5.1.0(vite@8.3.6(@types/node@26.6.6))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@vitest/spy': 5.1.0
       estree-walker: 3.0.3
       magic-string: 1.4.5
     optionalDependencies:
-      vite: 8.3.5(@types/node@26.6.6)
+      vite: 8.3.6(@types/node@26.6.6)
 
   '@vitest/spy@5.1.0': {}
 
@@ -1203,7 +1203,7 @@ snapshots:
 
   undici-types@8.9.0: {}
 
-  vite@8.3.5(@types/node@26.6.6):
+  vite@8.3.6(@types/node@26.6.6):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -1214,10 +1214,10 @@ snapshots:
       '@types/node': 26.6.6
       fsevents: 2.3.3
 
-  vitest@5.1.0(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)):
+  vitest@5.1.0(@types/node@26.6.6)(vite@8.3.6(@types/node@26.6.6)):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.1.0(vite@8.3.5)
+      '@vitest/mocker': 5.1.0(vite@8.3.6(@types/node@26.6.6))
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -1228,7 +1228,7 @@ snapshots:
       tinybench: 6.2.3
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
-      vite: 8.3.5(@types/node@26.6.6)
+      vite: 8.3.6(@types/node@26.6.6)
       why-is-node-running: 3.2.1
     optionalDependencies:
       '@types/node': 26.6.6
