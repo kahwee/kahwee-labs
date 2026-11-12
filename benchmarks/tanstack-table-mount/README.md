@@ -28,7 +28,9 @@ BaseUI's dependency tree includes older React peer ranges in unused virtualizati
 
 ## Evidence
 
-Published source and results are pinned by the immutable `tanstack-table-mount-v1` tag. Future changes need a new tag; do not move this one. See the timestamped result directories and their generated summaries.
+The initial reconstruction is pinned by `tanstack-table-mount-v1`. The complete follow-up evidence is pinned by `tanstack-table-mount-v2`; neither tag should be moved. See the [ten-pass summary](../../audits/ten-pass-summary-2026-11-12.md), [exact run manifest](../../audits/ten-pass-manifest-2026-11-12.json), and timestamped result directories. The earlier three-pass and two-pass audits remain alongside them, including the near-tie and noisier runs.
+
+The ten-pass batch contains 960 measured mounts. V9 had lower medians in all ten passes at 1,000 and 5,000 rows. The median of pass-level reductions was 7.60% and 4.81%, respectively; 100-row results were mixed. These results support a modest advantage in this fixture, not a fixed speedup across applications. Run `python3 audits/verify-table-results.py` from the repository root to independently check all saved samples and calculations against the unchanged harness.
 
 The first development run, `2026-11-12T16-11-55.968Z`, overlapped repository verification at its start. It is retained for transparency and excluded from the article. The subsequent run was made after verification completed; ordinary desktop activity was not controlled.
 

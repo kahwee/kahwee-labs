@@ -29,4 +29,4 @@ These ten passes support a modest, repeatable advantage at 1,000 and 5,000 rows 
 
 This is production React mounting a simple four-column BaseUI table into jsdom, not the complete migrated component, browser paint, interactions or bundle size. Repeated samples within a process are related. No inference of a universal speedup or statistical independence is made.
 
-The public article and immutable v1 tag are unchanged.
+Publication update: this evidence is included in `tanstack-table-mount-v2` and linked from the revised article. The original v1 tag is unchanged.
