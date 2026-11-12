@@ -1,0 +1,17 @@
+{
+  "startedAt": "2026-11-12T17:59:47.887939+00:00",
+  "completedAt": "2026-11-12T18:02:54.830830+00:00",
+  "passes": [
+    "results/2026-11-12T18-00-06.452Z",
+    "results/2026-11-12T18-00-25.009Z",
+    "results/2026-11-12T18-00-43.652Z",
+    "results/2026-11-12T18-01-02.516Z",
+    "results/2026-11-12T18-01-21.293Z",
+    "results/2026-11-12T18-01-40.157Z",
+    "results/2026-11-12T18-01-58.862Z",
+    "results/2026-11-12T18-02-17.430Z",
+    "results/2026-11-12T18-02-36.077Z",
+    "results/2026-11-12T18-02-54.807Z"
+  ],
+  "policy": "Ten sequential complete invocations, unchanged harness; all successful runs retained. No concurrent builds or tests initiated by this task. Background desktop activity uncontrolled."
+}
