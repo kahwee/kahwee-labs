@@ -39,3 +39,7 @@ Each published article should link to the current lab and an immutable evidence 
 ## CI maintenance
 
 [GitHub Actions maintenance](.github/ACTIONS.md) covers workflows, parallel checks, action versions, and weekly updates.
+
+## TanStack Table mount comparison
+
+[Reconstructed v8/v9 benchmark](benchmarks/tanstack-table-mount/) with pinned dependencies, matching cell-content checks and timestamped raw samples. Run `pnpm --filter @kahwee-labs/tanstack-table-mount benchmark` after verification completes. Evidence tag: `tanstack-table-mount-v1`.

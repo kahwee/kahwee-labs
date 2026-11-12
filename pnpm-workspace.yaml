@@ -6,3 +6,4 @@ packages:
 allowBuilds:
   workerd: true
   esbuild: true
+  core-js: false

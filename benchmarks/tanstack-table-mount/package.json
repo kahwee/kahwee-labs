@@ -1,0 +1,21 @@
+{
+  "name": "@kahwee-labs/tanstack-table-mount",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "benchmark": "NODE_ENV=production node scripts/run.mjs",
+    "test": "NODE_ENV=production node --test scripts/*.test.mjs",
+    "typecheck": "node --check scripts/run.mjs && node --check scripts/worker.mjs",
+    "build": "node --check scripts/worker.mjs"
+  },
+  "dependencies": {
+    "table-v8": "npm:@tanstack/react-table@8.21.3",
+    "table-v9": "npm:@tanstack/react-table@9.1.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "baseui": "18.2.0",
+    "styletron-react": "6.1.1",
+    "styletron-engine-atomic": "1.6.2",
+    "jsdom": "31.0.0"
+  }
+}
