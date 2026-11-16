@@ -16,6 +16,6 @@
     "baseui": "18.2.0",
     "styletron-react": "6.1.1",
     "styletron-engine-atomic": "1.6.2",
-    "jsdom": "31.0.0"
+    "jsdom": "31.0.1"
   }
 }
