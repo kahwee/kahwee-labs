@@ -7,3 +7,8 @@ allowBuilds:
   workerd: true
   esbuild: true
   core-js: false
+
+minimumReleaseAgeExclude:
+  - '@tanstack/query-core@5.108.1'
+  - '@tanstack/react-query@5.108.1'
+  - react-router@8.5.2
