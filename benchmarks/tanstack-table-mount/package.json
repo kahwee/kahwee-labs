@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "table-v8": "npm:@tanstack/react-table@8.21.3",
-    "table-v9": "npm:@tanstack/react-table@9.1.0",
+    "table-v9": "npm:@tanstack/react-table@9.3.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "baseui": "18.2.0",
     "styletron-react": "6.1.1",
     "styletron-engine-atomic": "1.6.2",
-    "jsdom": "31.0.0"
+    "jsdom": "31.0.1"
   }
 }
