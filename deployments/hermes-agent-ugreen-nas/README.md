@@ -7,7 +7,7 @@ Security-first companion files for [How to Run Hermes Agent on a UGREEN NAS with
 The default deployment is messaging-only:
 
 - no host ports are published;
-- secrets are stored in `/volume1/docker/hermes/.env`, not forwarded into Docker's inspectable container environment;
+- secrets are stored in `.env` inside the chosen host data directory, not forwarded into Docker's inspectable container environment;
 - the image must be pinned by digest;
 - CPU, memory, and process counts are bounded;
 - the container cannot gain new privileges;
@@ -18,10 +18,10 @@ The default deployment is messaging-only:
 1. Pull the Hermes image you intend to test.
 2. Record its immutable digest with `docker image inspect nousresearch/hermes-agent:latest --format '{{index .RepoDigests 0}}'`.
 3. Copy `.env.example` to `.env` and replace the Compose-only placeholders.
-4. Confirm the image's runtime UID and GID before changing host permissions.
+4. Set `HERMES_DATA_DIR` to an existing, dedicated directory on the NAS. For an existing gateway, use its current mount source. For a new install, create the directory first and set `HERMES_UID` and `HERMES_GID` to its intended numeric owner and group. Compose refuses to create a missing directory.
 5. Run `docker compose run --rm hermes setup`. Enter provider and messaging credentials in the wizard; Hermes writes them to the private data volume.
-6. On the NAS, run `chmod 700 /volume1/docker/hermes && chmod 600 /volume1/docker/hermes/.env`.
-7. In `/volume1/docker/hermes/config.yaml`, enable a circuit breaker for the unattended gateway:
+6. In the chosen data directory, check ownership and run `chmod 700 . && chmod 600 .env` as its owner.
+7. In the data directory’s `config.yaml`, enable a circuit breaker for the unattended gateway:
 
    ```yaml
    tool_loop_guardrails:
@@ -34,14 +34,14 @@ The default deployment is messaging-only:
 8. Run `docker compose up -d`.
 9. Run `./verify.sh`.
 
-Never commit the resulting `.env`, paste it into an issue, or mount the Docker socket. Backups of `/volume1/docker/hermes` contain secrets, sessions, and memories; encrypt them and restrict access like the live directory.
+Never commit the resulting `.env`, paste it into an issue, or mount the Docker socket. Backups of the data directory contain secrets, sessions, and memories; encrypt them and restrict access like the live directory.
 
 ## Optional API access
 
 The API is disabled by default. If a local client requires it:
 
 1. Generate a key with `openssl rand -hex 32`.
-2. Add these values to `/volume1/docker/hermes/.env` on the NAS:
+2. Add these values to the data directory’s `.env` on the NAS:
 
    ```env
    API_SERVER_ENABLED=true

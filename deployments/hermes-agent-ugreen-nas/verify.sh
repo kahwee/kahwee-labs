@@ -2,13 +2,12 @@
 set -eu
 
 compose="docker compose"
-data_dir="/volume1/docker/hermes"
 
 echo "1/7 Container state"
 $compose ps --status running hermes
 
 echo "2/7 Runtime identity"
-$compose exec -T hermes id
+$compose exec -T --user hermes hermes id
 
 echo "3/7 No API port published by default"
 if [ "${VERIFY_API:-0}" != "1" ] && $compose port hermes 8642 >/dev/null 2>&1; then
@@ -17,20 +16,22 @@ if [ "${VERIFY_API:-0}" != "1" ] && $compose port hermes 8642 >/dev/null 2>&1; t
 fi
 
 echo "4/7 Persistent configuration"
-$compose exec -T hermes sh -c 'test -r /opt/data/config.yaml && test -r /opt/data/.env'
+$compose exec -T --user hermes hermes sh -c 'test -x /opt/data && test -w /opt/data && test -r /opt/data/config.yaml && test -r /opt/data/.env'
 
 echo "5/7 Secret-file permissions"
-env_mode="$(stat -c '%a' "$data_dir/.env")"
-case "$env_mode" in 600|400) ;; *) echo "$data_dir/.env must be mode 600 or 400; found $env_mode" >&2; exit 1 ;; esac
+env_mode="$($compose exec -T --user hermes hermes stat -c '%a' /opt/data/.env)"
+case "$env_mode" in 600|400) ;; *) echo "/opt/data/.env must be mode 600 or 400; found $env_mode" >&2; exit 1 ;; esac
 
 echo "6/7 No placeholder credentials"
-if grep -qE 'replace-with|your-(key|token|id)' "$data_dir/.env"; then
-  echo "Placeholder credential remains in $data_dir/.env" >&2
+if ! $compose exec -T --user hermes hermes sh -c '
+  if grep -qE "replace-with|your-(key|token|id)" /opt/data/.env; then exit 1; else test "$?" -eq 1; fi
+'; then
+  echo "Could not confirm absence of placeholders in /opt/data/.env" >&2
   exit 1
 fi
 
 echo "7/7 Permission errors in recent logs"
-if $compose logs --tail=200 hermes | grep -iE 'permission denied|config.*error'; then
+if $compose logs --tail=200 hermes | grep -qiE 'permission denied|config.*error'; then
   echo "Found a possible configuration or permission error" >&2
   exit 1
 fi

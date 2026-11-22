@@ -5,7 +5,11 @@ services:
     restart: unless-stopped
     command: ["gateway", "run"]
     volumes:
-      - /volume1/docker/hermes:/opt/data
+      - type: bind
+        source: ${HERMES_DATA_DIR:-/volume1/docker/hermes}
+        target: /opt/data
+        bind:
+          create_host_path: false
     environment:
       HERMES_UID: ${HERMES_UID:?Set the verified numeric UID}
       HERMES_GID: ${HERMES_GID:?Set the verified numeric GID}
